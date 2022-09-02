@@ -15,58 +15,80 @@ import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 
-import post1 from './blogposts/blog-post.1.md';
-import post2 from './blogposts/blog-post.2.md';
-import post3 from './blogposts/blog-post.3.md';
+import post1 from './blogposts/post1'
 
+const url = 'https://truedatapublicassets.blob.core.windows.net/true-images/'
+const prefix = 'stock-'
+function generateRandom(min: number, max: number) {
+
+  // find diff
+  let difference = max - min;
+
+  // generate random number 
+  let rand = Math.random();
+
+  // multiply with difference 
+  rand = Math.floor( rand * difference);
+
+  // add with min value 
+  rand = rand + min;
+
+  return rand;
+}
+
+function randomizeBlob(url:string, prefix: string, nBlobs: number) {
+  let blob = url + prefix + generateRandom(1, nBlobs) + '.jpg'
+  return blob
+}
 
 const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
+  { title: 'About', url: '#' },
+  { title: 'Offering', url: '#' },
+  { title: 'Docs', url: '#' },
+  { title: 'Pricing', url: '#' },
+  { title: 'Blog', url: '#' },
+  { title: 'Team', url: '#' },
+  { title: 'FAQ', url: '#' },
+  { title: 'Contact', url: '#' },
 ];
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
+  title: 'Data Science & Engineering',
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random',
+    "Provide Data Science and Engineering solutions that generate insights, techniques and tools that enable organizations to achieve more with their data.",
+  image: randomizeBlob(url, prefix, 12),
   imageText: 'main image description',
   linkText: 'Continue reading…',
 };
 
+
+
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: 'Receipt',
+    date: 'Latest Release',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageLabel: 'Image Text',
+      'All in one integrated sales solution.',
+    image: randomizeBlob(url, prefix, 12),
+    imageLabel: 'Receipt',
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
+    title: 'Client Management',
+    date: 'Latest Release',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageLabel: 'Image Text',
+      'Custom solutions to enhance client experiences.',
+    image: randomizeBlob(url, prefix, 12),
+    imageLabel: 'Client Management',
   },
 ];
 
-const posts = [post1, post2, post3];
+const posts = [post1];
 
 const sidebar = {
   title: 'About',
   description:
-    'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+    'We, as a startup company, believe that organizations, big and small, can benefit from data driven processes and decision making as a result of data being at the center. \
+     We strive to intelligently care, manage and display data to improve business culture and results.',
   archives: [
     { title: 'March 2020', url: '#' },
     { title: 'February 2020', url: '#' },
@@ -94,7 +116,7 @@ export default function Blog() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header title="TRUE" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -114,8 +136,8 @@ export default function Blog() {
         </main>
       </Container>
       <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
+        image="https://truedatapublicassets.blob.core.windows.net/true-images/Logo.png"
+        description="Integrate technology to provide value"
       />
     </ThemeProvider>
   );

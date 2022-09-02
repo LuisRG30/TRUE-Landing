@@ -2,7 +2,8 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import Markdown from './Markdown';
+import Markdown from './Markdown'
+
 
 interface MainProps {
   posts: ReadonlyArray<string>;
@@ -27,11 +28,9 @@ export default function Main(props: MainProps) {
         {title}
       </Typography>
       <Divider />
-      {posts.map((post) => (
-        <Markdown className="markdown" key={post.substring(0, 40)}>
-          {post}
-        </Markdown>
+      {posts.map((post, index) => (
+        <Markdown key={index} className="markdown">{post}</Markdown>
       ))}
-    </Grid>
+     </Grid>
   );
 }
