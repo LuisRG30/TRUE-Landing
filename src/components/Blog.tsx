@@ -24,7 +24,7 @@ function generateRandom(min: number, max: number) {
 
   // generate random number 
   let rand = Math.random();
-
+  
   // multiply with difference 
   rand = Math.floor( rand * difference);
 
@@ -85,7 +85,9 @@ const posts = [post1];
 const sidebar = {
   title: 'About',
   description:
+
     'We, as a startup company, believe that organizations, big and small, can benefit from data driven processes and decision making as a result of data being at the center. We strive to intelligently care, manage and display data to improve business culture and results.',
+
   archives: [
     { title: 'March 2020', url: '#' },
     { title: 'February 2020', url: '#' },
