@@ -17,6 +17,10 @@ interface HeaderProps {
 export default function Header(props: HeaderProps) {
   const { sections, title } = props;
 
+  function handleEmailClick() {
+    window.location.href = 'mailto:support@truedata.com.mx'
+  }
+
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -31,11 +35,9 @@ export default function Header(props: HeaderProps) {
         >
           {title}
         </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
+        
+        <Button variant="outlined" size="small" onClick={() => handleEmailClick()} >
+          Email Us
         </Button>
       </Toolbar>
       <Toolbar
