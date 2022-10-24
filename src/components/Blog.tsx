@@ -16,6 +16,11 @@ import Footer from './Footer';
 import post1 from './blogposts/post1'
 
 const url = 'https://truedatapublicassets.blob.core.windows.net/true-images/'
+const mainimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-14.jpg'
+const receiptimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-15.jpg'
+const softwareimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-1.jpg'
+const dataimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-9.jpg'
+const automationimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-8.jpg'
 const prefix = 'stock-'
 function generateRandom(min: number, max: number) {
 
@@ -40,23 +45,23 @@ function randomizeBlob(url:string, prefix: string, nBlobs: number) {
 }
 
 const sections = [
-  { title: 'About', url: '#' },
-  { title: 'Offering', url: '#' },
-  { title: 'Docs', url: '#' },
-  { title: 'Pricing', url: '#' },
+  { title: 'Nosotros', url: '#' },
+  { title: 'Servicios', url: '#' },
+  { title: 'Documentación', url: '#' },
+  { title: 'Precios', url: '#' },
   { title: 'Blog', url: '#' },
   { title: 'Team', url: '#' },
   { title: 'FAQ', url: '#' },
-  { title: 'Contact', url: '#' },
+  { title: 'Contacto', url: '#' },
 ];
 
 const mainFeaturedPost = {
-  title: 'Data Science & Engineering',
+  title: 'Ingeniería y Ciencia de Datos',
   description:
-    "Provide Data Science and Engineering solutions that generate insights, techniques and tools that enable organizations to achieve more with their data.",
-  image: randomizeBlob(url, prefix, 12),
+    "Proporcionar soluciones de ciencia e ingeniería de datos que permitan a las organizaciones lograr más con sus datos.",
+  image: mainimageurl,
   imageText: 'main image description',
-  linkText: 'Continue reading…',
+  linkText: 'Sigue leyendo…',
 };
 
 
@@ -64,19 +69,35 @@ const mainFeaturedPost = {
 const featuredPosts = [
   {
     title: 'Receipt',
-    date: 'Latest Release',
+    date: 'Última Versión',
     description:
-      'All in one integrated sales solution.',
-    image: randomizeBlob(url, prefix, 12),
+      'Receipt es un punto de venta que te permite vender de manera fácil y rápida, interactuando con tus clientes digitalmente.',
+    image: receiptimageurl, 
     imageLabel: 'Receipt',
   },
   {
-    title: 'Client Management',
-    date: 'Latest Release',
+    title: 'Ingeniería de Software',
+    date: 'Comunícate con nosotros',
     description:
-      'Custom solutions to enhance client experiences.',
-    image: randomizeBlob(url, prefix, 12),
-    imageLabel: 'Client Management',
+      'Desarrollamos y administramos software a tu medida y la de tus clientes. Lleva tu negicio al espacio digital.',
+    image: softwareimageurl,
+    imageLabel: 'Software Engineering',
+  },
+  {
+    title: 'Ciencia de Datos',
+    date: 'Comunícate con nosotros',
+    description:
+      'Soluciones personalizadas para mejor tu experiencia empresarial. Haz mejor uso de tus datos para servir a clientes y colaboradores.',
+    image: dataimageurl,
+    imageLabel: 'Data Science',
+  },
+  {
+    title: 'Automatización',
+    date: 'Comunícate con nosotros',
+    description:
+      'Automatiza y digitaliza los procesos tediosos de tu negocio. Haz eficiente la operación y toma de decisiones.',
+    image: automationimageurl,
+    imageLabel: 'Automation',
   },
 ];
 

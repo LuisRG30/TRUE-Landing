@@ -34,7 +34,7 @@ export default function FeaturedPost(props: FeaturedPostProps) {
               {post.description}
             </Typography>
             <Typography variant="subtitle1" color="primary">
-              Continue reading...
+              Sigue leyendo...
             </Typography>
           </CardContent>
           <CardMedia
