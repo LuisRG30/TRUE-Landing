@@ -28,8 +28,8 @@ export default function Footer(props: FooterProps) {
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg" >
-        <Container maxWidth="sm">
-          <img src={image} alt="TRUE"/>
+        <Container maxWidth="sm" sx={{ display: 'flex', justifyContent: 'center'}}>
+          <img src={image} alt="TRUE" style={{'width': '15rem'}}/>
         </Container>
         <Typography
           variant="subtitle1"

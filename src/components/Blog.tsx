@@ -1,4 +1,7 @@
 import * as React from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -40,42 +43,38 @@ function randomizeBlob(url:string, prefix: string, nBlobs: number) {
 }
 
 const sections = [
-  { title: 'About', url: '#' },
-  { title: 'Offering', url: '#' },
-  { title: 'Docs', url: '#' },
-  { title: 'Pricing', url: '#' },
+  { title: 'Nosotros', url: '#' },
+  { title: 'Servicios', url: '#' },
   { title: 'Blog', url: '#' },
-  { title: 'Team', url: '#' },
-  { title: 'FAQ', url: '#' },
-  { title: 'Contact', url: '#' },
+  { title: 'Preguntas Frecuentes', url: '#' },
+  { title: 'Contacto', url: '#' },
 ];
 
 const mainFeaturedPost = {
-  title: 'Data Science & Engineering',
+  title: 'Ingeniería de Datos',
   description:
-    "Provide Data Science and Engineering solutions that generate insights, techniques and tools that enable organizations to achieve more with their data.",
-  image: randomizeBlob(url, prefix, 12),
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
+    "Creamos soluciones que permiten a las organizaciones lograr más.",
+  image: url + prefix + '2' + '.jpg',
+  imageText: 'main image description', 
 };
 
 
 
 const featuredPosts = [
   {
-    title: 'Receipt',
-    date: 'Latest Release',
+    title: 'Data Management',
+    date: 'Control. Integridad. Agilidad.',
     description:
-      'All in one integrated sales solution.',
-    image: randomizeBlob(url, prefix, 12),
+      'Controla tus datos y aprovecha su potencial. Resuelve problemas operacionales y de negocio.',
+    image: url + prefix + '3' + '.jpg',
     imageLabel: 'Receipt',
   },
   {
-    title: 'Client Management',
-    date: 'Latest Release',
+    title: 'Data Intelligence',
+    date: 'Descubrimiento. Conocimiento. Optimización.',
     description:
-      'Custom solutions to enhance client experiences.',
-    image: randomizeBlob(url, prefix, 12),
+      'Descubre patrones y relaciones ocultas en tus datos. Mejora tus procesos y toma decisiones.',
+    image: url + prefix + '9' + '.jpg',
     imageLabel: 'Client Management',
   },
 ];
@@ -123,15 +122,7 @@ export default function Blog() {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
-          </Grid>
+          
         </main>
       </Container>
       <Footer
