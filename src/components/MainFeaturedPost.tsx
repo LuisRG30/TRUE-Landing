@@ -15,6 +15,7 @@ interface MainFeaturedPostProps {
     image: string;
     imageText: string;
     title: string;
+    callToAction: string | null;
   };
 }
 
@@ -61,14 +62,18 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Button variant="contained" sx={{ color: 'black', backgroundColor: '#ffffff', border: 1, fontFamily: 'Roboto, sans-serif', '&:hover': {
-              backgroundColor: 'black',
-              color: 'white',
-              borderColor: '#f8f8f8',
-              border: 1,
-            } }}>
-              Encuentra un servicio para ti
-            </Button>
+            {
+              post.callToAction && (
+                <Button variant="contained" sx={{ color: 'black', fontSize: 16,backgroundColor: '#ffffff', border: 1, fontFamily: 'Roboto, sans-serif', '&:hover': {
+                  backgroundColor: 'black',
+                  color: 'white',
+                  borderColor: '#f8f8f8',
+                  border: 1,
+                } }}>
+                  Encuentra un servicio para ti
+                </Button>
+              )
+            }
           </Box>
         </Grid>
       </Grid>

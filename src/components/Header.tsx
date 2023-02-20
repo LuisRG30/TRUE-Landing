@@ -9,17 +9,17 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
-interface HeaderProps {
-  sections: ReadonlyArray<{
-    title: string;
-    url: string;
-  }>;
-  title: string;
-}
 
-export default function Header(props: HeaderProps) {
+const sections = [
+  { title: 'Nosotros', url: '/us' },
+  { title: 'Servicios', url: '#' },
+  { title: 'Blog', url: '#' },
+  { title: 'Preguntas Frecuentes', url: '#' },
+  { title: 'Contacto', url: '#' },
+];
+
+export default function Header() {
   const navigate = useNavigate();
-  const { sections, title } = props;
 
   function handleEmailClick() {
     window.location.href = 'mailto:support@truedata.com.mx'
@@ -42,6 +42,7 @@ export default function Header(props: HeaderProps) {
             href={section.url}
             sx={{ p: 1, flexShrink: 0, fontSize: '1rem' }}
             underline="none"
+            onClick={() => navigate(section.url)}
           >
             {section.title}
           </Link>

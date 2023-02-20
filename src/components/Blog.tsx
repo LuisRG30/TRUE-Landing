@@ -42,13 +42,6 @@ function randomizeBlob(url:string, prefix: string, nBlobs: number) {
   return blob
 }
 
-const sections = [
-  { title: 'Nosotros', url: '#' },
-  { title: 'Servicios', url: '#' },
-  { title: 'Blog', url: '#' },
-  { title: 'Preguntas Frecuentes', url: '#' },
-  { title: 'Contacto', url: '#' },
-];
 
 const mainFeaturedPost = {
   title: 'Ingeniería de Datos',
@@ -56,6 +49,7 @@ const mainFeaturedPost = {
     "Creamos soluciones que permiten a las organizaciones lograr más.",
   image: url + prefix + '2' + '.jpg',
   imageText: 'main image description', 
+  callToAction: 'typeform'
 };
 
 
@@ -114,7 +108,7 @@ export default function Blog() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="TRUE" sections={sections} />
+        <Header />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
