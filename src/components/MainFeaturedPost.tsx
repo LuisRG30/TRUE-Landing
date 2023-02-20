@@ -69,7 +69,9 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
                   color: 'white',
                   borderColor: '#f8f8f8',
                   border: 1,
-                } }}>
+                } }}
+                onClick={() => window.location.href = 'https://l9iqjjtmd5o.typeform.com/to/iyyW6XGz'}
+                >
                   Encuentra un servicio para ti
                 </Button>
               )

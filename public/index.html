@@ -40,4 +40,22 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  
+  <script>
+    (function(d,t) {
+      var BASE_URL="https://chatwoot.truedata.com.mx";
+      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=BASE_URL+"/packs/js/sdk.js";
+      g.defer = true;
+      g.async = true;
+      s.parentNode.insertBefore(g,s);
+      g.onload=function(){
+        window.chatwootSDK.run({
+          websiteToken: 'tVUexYjWy2FZDA3GVsUwdags',
+          baseUrl: BASE_URL
+        })
+      }
+    })(document,"script");
+  </script>
+  
 </html>

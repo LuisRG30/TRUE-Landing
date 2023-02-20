@@ -12,7 +12,7 @@ import Link from '@mui/material/Link';
 
 const sections = [
   { title: 'Nosotros', url: '/us' },
-  { title: 'Servicios', url: '#' },
+  { title: 'Servicios', url: '/services' },
   { title: 'Blog', url: '#' },
   { title: 'Preguntas Frecuentes', url: '#' },
   { title: 'Contacto', url: '#' },
