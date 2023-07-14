@@ -1,7 +1,3 @@
-import * as React from 'react';
-
-import { useNavigate } from 'react-router-dom';
-
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -12,8 +8,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
-import Main from './Main';
-import Sidebar from './Sidebar';
 import Footer from './Footer';
 import ChatButton from './ChatButton';
 
