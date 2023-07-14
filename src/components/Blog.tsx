@@ -10,9 +10,6 @@ import Footer from './Footer';
 import ChatButton from './ChatButton';
 
 
-const url = 'https://truedatapublicassets.blob.core.windows.net/true-images/'
-const prefix = 'stock-'
-
 
 
 const mainFeaturedPost = {
