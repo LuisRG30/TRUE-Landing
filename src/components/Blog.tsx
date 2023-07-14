@@ -1,9 +1,7 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
@@ -11,26 +9,9 @@ import FeaturedPost from './FeaturedPost';
 import Footer from './Footer';
 import ChatButton from './ChatButton';
 
-import post1 from './blogposts/post1'
 
 const url = 'https://truedatapublicassets.blob.core.windows.net/true-images/'
 const prefix = 'stock-'
-function generateRandom(min: number, max: number) {
-
-  // find diff
-  let difference = max - min;
-
-  // generate random number
-  let rand = Math.random();
-
-  // multiply with difference
-  rand = Math.floor( rand * difference);
-
-  // add with min value
-  rand = rand + min;
-
-  return rand;
-}
 
 
 
