@@ -15,6 +15,7 @@ import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
+import ChatButton from './ChatButton';
 
 import post1 from './blogposts/post1'
 
@@ -25,13 +26,13 @@ function generateRandom(min: number, max: number) {
   // find diff
   let difference = max - min;
 
-  // generate random number 
+  // generate random number
   let rand = Math.random();
-  
-  // multiply with difference 
+
+  // multiply with difference
   rand = Math.floor( rand * difference);
 
-  // add with min value 
+  // add with min value
   rand = rand + min;
 
   return rand;
@@ -48,7 +49,7 @@ const mainFeaturedPost = {
   description:
     "Creamos soluciones que permiten a las organizaciones lograr más.",
   image: url + prefix + '2' + '.jpg',
-  imageText: 'main image description', 
+  imageText: 'main image description',
   callToAction: 'typeform'
 };
 
@@ -116,7 +117,8 @@ export default function Blog() {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
-          
+          <ChatButton />
+
         </main>
       </Container>
       <Footer
