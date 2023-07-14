@@ -27,7 +27,7 @@ const ChatButton = () => {
     }
   };
 
-    const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle );
+    const currentChat = previousChats.filter(previousChat => previousChat.title === "Chat" );
 
   return (
     <div className={`chat-button ${isChatOpen ? 'open' : ''}`}>
