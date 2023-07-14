@@ -5,6 +5,7 @@ const ChatButton = () => {
   const [value, setValue] = useState("");
   const [ previousChats, setPreviousChats] = useState([]);
   const [isChatOpen, setChatOpen] = useState(false);
+  const [message, setMessage] = useState("")
 
   const handleButtonClick = () => {
     setChatOpen(!isChatOpen);
@@ -17,7 +18,6 @@ const ChatButton = () => {
   const handleSendMessage = () => {
     if (value.trim() !== '') {
       const newMessage = {
-        title: currentTitle,
         role: 'user',
         content: value,
       };
