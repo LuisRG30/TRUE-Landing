@@ -19,7 +19,7 @@ const mainFeaturedPost = {
   title: 'Ingeniería de Datos',
   description:
     "Creamos soluciones que permiten a las organizaciones lograr más.",
-  image: url + prefix + '2' + '.jpg',
+  image: '',
   imageText: 'main image description',
   callToAction: 'typeform'
 };
@@ -32,7 +32,7 @@ const featuredPosts = [
     date: 'Control. Integridad. Agilidad.',
     description:
       'Controla tus datos y aprovecha su potencial. Resuelve problemas operacionales y de negocio.',
-    image: url + prefix + '3' + '.jpg',
+    image: '',
     imageLabel: 'Receipt',
   },
   {
@@ -40,7 +40,7 @@ const featuredPosts = [
     date: 'Descubrimiento. Conocimiento. Optimización.',
     description:
       'Descubre patrones y relaciones ocultas en tus datos. Mejora tus procesos y toma decisiones.',
-    image: url + prefix + '9' + '.jpg',
+    image: '',
     imageLabel: 'Client Management',
   },
 ];
