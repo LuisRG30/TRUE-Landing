@@ -40,7 +40,7 @@ const ChatButton = () => {
             ref.current.scrollIntoView({ behavior: "smooth" })
             break;
           case "last_messages":
-            conv = data.conversation_name
+            const conv = data.conversation_name
             setConversationName(conv)
             localStorage.setItem("anonymous", JSON.stringify({converesationName: conv}))
             setPreviousChats([...data.messages.reverse()]);
