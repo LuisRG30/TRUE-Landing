@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import ReactMarkdown from 'react-markdown';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';

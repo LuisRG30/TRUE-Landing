@@ -12,7 +12,6 @@ import Container from '@mui/material/Container';
 const theme = createTheme()
 
 const Services = () => {
-    const navigate = useNavigate();
     
     return (
         <ThemeProvider theme={theme}>

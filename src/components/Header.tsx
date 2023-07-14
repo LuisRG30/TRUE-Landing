@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import truelogo from '../TRUE-left.svg';
 
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
 
@@ -20,10 +18,6 @@ const sections = [
 
 export default function Header() {
   const navigate = useNavigate();
-
-  function handleEmailClick() {
-    window.location.href = 'mailto:support@truedata.com.mx'
-  }
 
   return (
     <React.Fragment>
