@@ -1,7 +1,4 @@
 
-
-import { useNavigate } from 'react-router-dom';
-
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 
@@ -40,7 +37,6 @@ const values = {
 }
 
 const Us = () => {
-    const navigate = useNavigate();
     
     return (
         <ThemeProvider theme={theme}>

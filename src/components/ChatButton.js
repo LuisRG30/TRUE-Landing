@@ -5,7 +5,11 @@ const ChatButton = () => {
   const [value, setValue] = useState("");
   const [ previousChats, setPreviousChats] = useState([]);
   const [isChatOpen, setChatOpen] = useState(false);
-  const [message, setMessage] = useState("")
+
+  /*
+  const [converesationName, setConversationName] = useState(
+    JSON.parse(localStorage.getItem("anonymousConversation") || '{"conversationName": ""}')
+  )*/
 
   const handleButtonClick = () => {
     setChatOpen(!isChatOpen);
@@ -23,7 +27,6 @@ const ChatButton = () => {
       };
       setPreviousChats([...previousChats, newMessage]);
       setValue('');
-      setMessage({ role: 'bot', content: 'Ejemplo de respuesta del bot' }); // Ejemplo de respuesta del bot
     }
   };
 
