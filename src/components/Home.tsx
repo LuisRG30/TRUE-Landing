@@ -3,20 +3,31 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
+import ParticleAnimation from './ParticleAnimation';
+import ScrollComponent from './ScrollComponent';
+import AppleVideo from './AppleVideo';
 
-import post1 from './blogposts/post1'
+import MarkdownGood from './Markdown';
+import ParticleSpiral from './ParticleSpiral';
+
+// Use markdown to create blog posts
+// import post1 from './blogposts/post1'
+// import latestBlog from './blogposts/latest-blog.md'
 
 const url = 'https://truedatapublicassets.blob.core.windows.net/true-images/'
 const prefix = 'stock-'
@@ -59,7 +70,6 @@ const mainFeaturedPost = {
 };
 
 
-
 const featuredPosts = [
   {
     title: 'Data Management',
@@ -77,9 +87,15 @@ const featuredPosts = [
     image: url + prefix + '9' + '.jpg',
     imageLabel: 'Client Management',
   },
+  {
+    title: 'Data Mastery',
+    date: 'Entrenamiento. Capacitación. Transformación.',
+    description:
+      'Entrena a tus colaboradores y capacítalos para que puedan aprovechar el potencial de tus datos.',
+    image: url + prefix + '4' + '.jpg',
+    imageLabel: 'Data Management',
+  },
 ];
-
-const posts = [post1];
 
 const sidebar = {
   title: 'About',
@@ -107,28 +123,51 @@ const sidebar = {
   ],
 };
 
+const latestBlogUrl = 'https://truedatapublicassets.blob.core.windows.net/blogs/latest-blog.md'
+
+const posts = [ latestBlogUrl ];
+
 const theme = createTheme();
 
-export default function Blog() {
+export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth="lg">
-        <Header title="TRUE" sections={sections} />
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid>
-          
-        </main>
-      </Container>
-      <Footer
-        image="https://truedatapublicassets.blob.core.windows.net/true-images/Logo.png"
-        description="Integrate technology to provide value"
-      />
+      <Box sx={{ display: 'flex', justifyContent:'space-between', flexDirection:'column', minHeight: '100vh' }}>
+        <Box>
+          <Container maxWidth="lg">
+            <Header title="TRUE" sections={sections} />
+            <MainFeaturedPost post={mainFeaturedPost} />
+            <Grid container sx={{ display: 'flex', justifyContent:'center', alignItems:'center', p:'1%', pt:'5%' }}>
+              <Box sx={{ display: 'flex', justifyContent:'space-between', flexDirection:'row', width:'100%' }}>
+                {featuredPosts.map((post) => (
+                  <Typography key={post.title} variant="h4" component="h2" gutterBottom>
+                    {post.title}
+                  </Typography>
+                ))}
+              </Box>
+            </Grid>
+            {/*<ParticleSpiral /> */}
+
+            <Grid container spacing={5} sx={{ mt: 3 }}>
+              <Main title="Nuestro último blog" posts={posts} />
+              <Sidebar
+                title={sidebar.title}
+                description={sidebar.description}
+                archives={sidebar.archives}
+                social={sidebar.social}
+              />
+            </Grid>
+            
+          </Container>
+        </Box>
+        <Box>
+          <Footer
+            //image="https://truedatapublicassets.blob.core.windows.net/true-images/Logo.png"
+            description="Integrate technology to provide value"
+          />
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }

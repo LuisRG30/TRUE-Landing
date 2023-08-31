@@ -3,13 +3,13 @@ import './App.css';
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Blog from './components/Blog';
+import Home from './components/Home';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Blog />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
