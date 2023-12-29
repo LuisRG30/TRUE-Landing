@@ -13,7 +13,7 @@ import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 
-import post1 from './blogposts/post1'
+import post1 from '../blogposts/latest-blog.md'
 
 const url = 'https://truedatapublicassets.blob.core.windows.net/true-images/'
 const mainimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-14.jpg'

@@ -18,18 +18,13 @@ export default function Main(props: MainProps) {
       item
       xs={12}
       md={8}
-      sx={{
-        '& .markdown': {
-          py: 3,
-        },
-      }}
     >
       <Typography variant="h6" gutterBottom>
         {title}
       </Typography>
       <Divider />
-      {posts.map((post, index) => (
-        <Markdown key={index} className="markdown">{post}</Markdown>
+      {posts.map((postPath, index) => (
+        <Markdown key={index} markdownPath={postPath}/>
       ))}
      </Grid>
   );
