@@ -1,50 +1,31 @@
+import React from 'react';
+import { Remarkable } from 'remarkable';
+// import azure packages to read blob storage
 
-import ReactMarkdown from 'react-markdown';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import Box from '@mui/material/Box';
-
-function MarkdownListItem(props: any) {
-  return <Box component="li" sx={{ mt: 1, typography: 'body1' }} {...props} />;
+type MarkdownGoodProps = {
+  markdownPath: string;
 }
 
-const options = {
-  overrides: {
-    h1: {
-      component: Typography,
-      props: {
-        gutterBottom: true,
-        variant: 'h4',
-        component: 'h1',
-      },
-    },
-    h2: {
-      component: Typography,
-      props: { gutterBottom: true, variant: 'h6', component: 'h2' },
-    },
-    h3: {
-      component: Typography,
-      props: { gutterBottom: true, variant: 'subtitle1' },
-    },
-    h4: {
-      component: Typography,
-      props: {
-        gutterBottom: true,
-        variant: 'caption',
-        paragraph: true,
-      },
-    },
-    p: {
-      component: Typography,
-      props: { paragraph: true },
-    },
-    a: { component: Link },
-    li: {
-      component: MarkdownListItem,
-    },
-  },
-};
+const Markdown = (props: MarkdownGoodProps) => {
+  const [markdown, setMarkdown] = React.useState('');
+  
 
-export default function Markdown(props: any) {
-  return <ReactMarkdown options={options} {...props} />;
+  const getMarkdown = async () => {
+    const response = await fetch(props.markdownPath, {
+      method: 'GET',
+    });
+    const text = await response.text();
+    setMarkdown(text);
+  }
+
+  React.useEffect(() => {
+    getMarkdown();
+  }, []);
+
+  const md = new Remarkable();
+  return (
+    <div dangerouslySetInnerHTML={{ __html: md.render(markdown) }} />
+  );
 }
+
+export default Markdown;

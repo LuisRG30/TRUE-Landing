@@ -4,6 +4,8 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Typed from 'react-typed';
+import { fontFamily } from '@mui/system';
 
 
 
@@ -54,9 +56,13 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
               pr: { md: 0 },
             }}
           >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-              {post.title}
-            </Typography>
+            <Typed
+              style={{ fontFamily: 'Roboto, sans-serif', fontSize: '2.5rem' }}
+              strings={['Ingeniería de Datos', 'Inteligencia Artificial', 'Machine Learning', 'Big Data', 'Análisis de Datos', 'Ciencia de Datos']}
+              typeSpeed={50}
+              backSpeed={50}
+              loop
+            />
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
