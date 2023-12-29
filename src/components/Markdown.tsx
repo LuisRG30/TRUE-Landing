@@ -1,6 +1,5 @@
 import React from 'react';
 import { Remarkable } from 'remarkable';
-// import azure packages to read blob storage
 
 type MarkdownGoodProps = {
   markdownPath: string;

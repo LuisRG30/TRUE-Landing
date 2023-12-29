@@ -1,25 +1,21 @@
-
+import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typed from 'react-typed';
-import { fontFamily } from '@mui/system';
-
-
 
 interface MainFeaturedPostProps {
   post: {
     description: string;
     image: string;
     imageText: string;
-    title: string;
-    callToAction: string | null;
+    title: string | string[];
+    align: string;
   };
 }
 
-export default function MainFeaturedPost(props: MainFeaturedPostProps) {
+export default function MainFeaturedPost(props: React.PropsWithChildren<MainFeaturedPostProps>) {
   const { post } = props;
 
   return (
@@ -47,7 +43,12 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
           backgroundColor: 'rgba(0,0,0,.3)',
         }}
       />
-      <Grid container>
+      <Grid container
+        sx={{
+          pr: '5%',
+          pl: '5%',
+          justifyContent: post.align,
+        }}>
         <Grid item md={6}>
           <Box
             sx={{
@@ -56,30 +57,29 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
               pr: { md: 0 },
             }}
           >
-            <Typed
-              style={{ fontFamily: 'Roboto, sans-serif', fontSize: '2.5rem' }}
-              strings={['Ingeniería de Datos', 'Inteligencia Artificial', 'Machine Learning', 'Big Data', 'Análisis de Datos', 'Ciencia de Datos']}
-              typeSpeed={50}
-              backSpeed={50}
-              loop
-            />
+            { typeof post.title === 'string' ? (
+              <Typography
+                component="h1"
+                variant="h3"
+                color="inherit"
+                gutterBottom
+                sx={{ fontFamily: 'Roboto, sans-serif', fontSize: '2.5rem' }}
+              >
+                {post.title}
+              </Typography>
+            ) : (
+              <Typed
+                style={{ fontFamily: 'Roboto, sans-serif', fontSize: '2.5rem' }}
+                strings={post.title}
+                typeSpeed={50}
+                backSpeed={50}
+                loop
+              />
+            )}
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            {
-              post.callToAction && (
-                <Button variant="contained" sx={{ color: 'black', fontSize: 16,backgroundColor: '#ffffff', border: 1, fontFamily: 'Roboto, sans-serif', '&:hover': {
-                  backgroundColor: 'black',
-                  color: 'white',
-                  borderColor: '#f8f8f8',
-                  border: 1,
-                } }}
-                onClick={() => window.location.href = 'https://l9iqjjtmd5o.typeform.com/to/iyyW6XGz'}
-                >
-                  Encuentra un servicio para ti
-                </Button>
-              )
-            }
+            {props.children}
           </Box>
         </Grid>
       </Grid>
