@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -19,18 +19,20 @@ function Copyright() {
 
 interface FooterProps {
   description: string;
-  image: any;
+  image?: any;
 }
 
 export default function Footer(props: FooterProps) {
   const { description, image } = props;
 
   return (
-    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
+    <Box component="footer" sx={{ bgcolor: 'background.paper', py: 3 }}>
       <Container maxWidth="lg" >
-        <Container maxWidth="sm">
-          <img src={image} alt="TRUE"/>
-        </Container>
+        {image ? 
+          <Container maxWidth="sm" sx={{ display: 'flex', justifyContent: 'center'}}>
+            <img src={image} alt="TRUE" style={{'width': '15rem'}}/>
+          </Container>
+        : null}
         <Typography
           variant="subtitle1"
           align="center"

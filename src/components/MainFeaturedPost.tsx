@@ -2,20 +2,20 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import Typed from 'react-typed';
 
 interface MainFeaturedPostProps {
   post: {
     description: string;
     image: string;
     imageText: string;
-    linkText: string;
-    title: string;
+    title: string | string[];
+    align: string;
   };
 }
 
-export default function MainFeaturedPost(props: MainFeaturedPostProps) {
+export default function MainFeaturedPost(props: React.PropsWithChildren<MainFeaturedPostProps>) {
   const { post } = props;
 
   return (
@@ -43,7 +43,12 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
           backgroundColor: 'rgba(0,0,0,.3)',
         }}
       />
-      <Grid container>
+      <Grid container
+        sx={{
+          pr: '5%',
+          pl: '5%',
+          justifyContent: post.align,
+        }}>
         <Grid item md={6}>
           <Box
             sx={{
@@ -52,15 +57,29 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
               pr: { md: 0 },
             }}
           >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-              {post.title}
-            </Typography>
+            { typeof post.title === 'string' ? (
+              <Typography
+                component="h1"
+                variant="h3"
+                color="inherit"
+                gutterBottom
+                sx={{ fontFamily: 'Roboto, sans-serif', fontSize: '2.5rem' }}
+              >
+                {post.title}
+              </Typography>
+            ) : (
+              <Typed
+                style={{ fontFamily: 'Roboto, sans-serif', fontSize: '2.5rem' }}
+                strings={post.title}
+                typeSpeed={50}
+                backSpeed={50}
+                loop
+              />
+            )}
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
-              {post.linkText}
-            </Link>
+            {props.children}
           </Box>
         </Grid>
       </Grid>

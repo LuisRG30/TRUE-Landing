@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
@@ -34,7 +34,7 @@ export default function FeaturedPost(props: FeaturedPostProps) {
               {post.description}
             </Typography>
             <Typography variant="subtitle1" color="primary">
-              Sigue leyendo...
+              Conoce más...
             </Typography>
           </CardContent>
           <CardMedia

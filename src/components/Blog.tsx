@@ -1,27 +1,32 @@
 import * as React from 'react';
+
 import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
+
+import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
+import DeblurOutlinedIcon from '@mui/icons-material/DeblurOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
+import ServiceCategory from './ServiceCategory';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 
-import post1 from './blogposts/post1'
-
 const url = 'https://truedatapublicassets.blob.core.windows.net/true-images/'
-const mainimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-14.jpg'
-const receiptimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-15.jpg'
-const softwareimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-1.jpg'
-const dataimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-9.jpg'
-const automationimageurl = 'https://truedatapublicassets.blob.core.windows.net/true-images/stock-8.jpg'
 const prefix = 'stock-'
+
 function generateRandom(min: number, max: number) {
 
   // find diff
@@ -47,61 +52,44 @@ function randomizeBlob(url:string, prefix: string, nBlobs: number) {
 const sections = [
   { title: 'Nosotros', url: '#' },
   { title: 'Servicios', url: '#' },
-  { title: 'Documentación', url: '#' },
-  { title: 'Precios', url: '#' },
   { title: 'Blog', url: '#' },
-  { title: 'Team', url: '#' },
-  { title: 'FAQ', url: '#' },
+  { title: 'Preguntas Frecuentes', url: '#' },
   { title: 'Contacto', url: '#' },
 ];
 
 const mainFeaturedPost = {
-  title: 'Ingeniería y Ciencia de Datos',
+  title: ['Ingeniería de Datos', 'Inteligencia Artificial', 'Machine Learning', 'Big Data', 'Análisis de Datos', 'Ciencia de Datos'],
   description:
-    "Proporcionar soluciones de ciencia e ingeniería de datos que permitan a las organizaciones lograr más con sus datos.",
-  image: mainimageurl,
-  imageText: 'main image description',
-  linkText: 'Sigue leyendo…',
+    "Creamos soluciones que permiten a las organizaciones lograr más.",
+  image: url + prefix + '2' + '.jpg',
+  imageText: 'main image description', 
+  align: 'left'
 };
 
 
-
-const featuredPosts = [
+const serviceCategories = [
   {
-    title: 'Receipt',
-    date: 'Última Versión',
+    title: 'Data Management',
     description:
-      'Receipt es un punto de venta que te permite vender de manera fácil y rápida, interactuando con tus clientes digitalmente.',
-    image: receiptimageurl, 
-    imageLabel: 'Receipt',
+      'Controla tus datos y aprovecha su potencial. Resuelve problemas operacionales y de negocio.',
+    icon: <AccountTreeOutlinedIcon sx={{ fontSize: '3rem', color: '#14252C' }}/>,
+    link: '/services'
   },
   {
-    title: 'Ingeniería de Software',
-    date: 'Comunícate con nosotros',
+    title: 'Data Intelligence',
     description:
-      'Desarrollamos y administramos software a tu medida y la de tus clientes. Lleva tu negicio al espacio digital.',
-    image: softwareimageurl,
-    imageLabel: 'Software Engineering',
+      'Descubre patrones y relaciones ocultas en tus datos. Mejora tus procesos y toma decisiones.',
+    icon: <DeblurOutlinedIcon sx={{ fontSize: '3rem', color: '#14252C' }}/>,
+    link: '/services'
   },
   {
-    title: 'Ciencia de Datos',
-    date: 'Comunícate con nosotros',
+    title: 'Data Mastery',
     description:
-      'Soluciones personalizadas para mejor tu experiencia empresarial. Haz mejor uso de tus datos para servir a clientes y colaboradores.',
-    image: dataimageurl,
-    imageLabel: 'Data Science',
-  },
-  {
-    title: 'Automatización',
-    date: 'Comunícate con nosotros',
-    description:
-      'Automatiza y digitaliza los procesos tediosos de tu negocio. Haz eficiente la operación y toma de decisiones.',
-    image: automationimageurl,
-    imageLabel: 'Automation',
+      'Entrena a tus colaboradores y capacítalos para que puedan aprovechar el potencial de tus datos.',
+    icon: <SchoolOutlinedIcon sx={{ fontSize: '3rem', color: '#14252C' }}/>,
+    link: '/services'
   },
 ];
-
-const posts = [post1];
 
 const sidebar = {
   title: 'About',
@@ -129,36 +117,73 @@ const sidebar = {
   ],
 };
 
+const latestBlogUrl = 'https://truedatapublicassets.blob.core.windows.net/blogs/latest-blog.md'
+
+const posts = [ latestBlogUrl ];
+
 const theme = createTheme();
 
-export default function Blog() {
+export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth="lg">
-        <Header title="TRUE" sections={sections} />
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
-          </Grid>
-        </main>
-      </Container>
-      <Footer
-        image="https://truedatapublicassets.blob.core.windows.net/true-images/Logo.png"
-        description="Integrate technology to provide value"
-      />
+      <Box sx={{ display: 'flex', justifyContent:'space-between', flexDirection:'column', minHeight: '100vh' }}>
+        <Box>
+          <Container maxWidth="lg">
+            <Header />
+            <MainFeaturedPost post={mainFeaturedPost}>
+              <Box sx={{ mt:'10%'}}>
+                <Button variant="contained"
+                        sx={{ color: 'black',
+                              fontSize: 16,
+                              backgroundColor: '#ffffff',
+                              border: 1,
+                              fontFamily: 'Roboto, sans-serif',
+                              '&:hover': {
+                                backgroundColor: 'black',
+                                color: 'white',
+                                borderColor: '#f8f8f8',
+                                border: 1
+                              }
+                            }}
+                        onClick={() => window.location.href = 'https://l9iqjjtmd5o.typeform.com/to/iyyW6XGz'}>
+                    Encuentra un servicio para ti
+                </Button>
+              </Box>
+            </MainFeaturedPost>
+            <Typography
+              component="h1"
+              sx={{ fontFamily: 'Roboto, sans-serif', fontSize: '3rem', pt: '3%'}}
+            >
+              Explora nuestros servicios
+            </Typography>
+            <Grid container sx={{ display: 'flex', justifyContent:'center', alignItems:'center', p:'1%', pt:'3%' }}>
+              <Box sx={{ display: 'flex', justifyContent:'space-between', width:'100%' }}>
+                {serviceCategories.map((serviceCategory) => (
+                  <ServiceCategory key={serviceCategory.title} serviceCategory={serviceCategory} />
+                ))}
+              </Box>
+            </Grid>
+
+            <Grid container spacing={5} sx={{ mt: 3 }}>
+              <Main title="Nuestro blog más reciente" posts={posts} />
+              <Sidebar
+                title={sidebar.title}
+                description={sidebar.description}
+                archives={sidebar.archives}
+                social={sidebar.social}
+              />
+            </Grid>
+            
+          </Container>
+        </Box>
+        <Box>
+          <Footer
+            //image="https://truedatapublicassets.blob.core.windows.net/true-images/Logo.png"
+            description="Integrate technology to provide value"
+          />
+        </Box>
+      </Box>
     </ThemeProvider>
   );
 }
