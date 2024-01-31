@@ -24,7 +24,7 @@ export default function Header() {
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
+        sx={{ justifyContent: 'space-between', overflowX: 'auto'}}
       >
         <img src={truelogo} alt="True Data" width="25%" height="auto" onClick={() => navigate('/')} style={{ cursor: 'pointer'}}/> 
         {sections.map((section) => (
