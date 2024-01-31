@@ -2,7 +2,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typed from 'react-typed';
+import { ReactTyped } from 'react-typed';
 
 interface MainFeaturedPostProps {
   post: {
@@ -67,7 +67,7 @@ export default function MainFeaturedPost(props: React.PropsWithChildren<MainFeat
                 {post.title}
               </Typography>
             ) : (
-              <Typed
+              <ReactTyped
                 style={{ fontFamily: 'Roboto, sans-serif', fontSize: '2.5rem' }}
                 strings={post.title}
                 typeSpeed={50}
